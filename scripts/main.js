@@ -1,36 +1,35 @@
 'use strict';
+var Backbone = require('backbone');
+var $ = require('jquery');
+
+$(document).ready(function() {
 var Router =Backbone.Router.extend({
 	routes: {
-		'load' : 'load',
-		'menu' : 'menu',
-		'play' : 'play',
-		'leaderboard' : 'leaderboard',
-		'settings' : 'settings'
+		'play' : 'goPlay',
+		'leaderBoard' : 'myLeaderboard',
+		'settings' : 'mySettings',
 	},
-	load : function(){
+	goPlay : function(){
 		$('section').hide();
-		$('#load').show();
+		$('#playScreen').show();
+		$('nav').show();
 	},
-	menu : function(){
+	goLeaderboard : function(){
 		$('section').hide();
-		$('#menu').show();
+		$('#leaderboardScreen').show();
+		$('nav').show();
 	},
-	play : function(){
+	goSettings : function(){
 		$('section').hide();
-		$('#play').show();
-	},
-	leaderboard : function(){
-		$('section').hide();
-		$('#leaderboard').show();
-	},
-	settings : function(){
-		$('section').hide();
-		$('#settings').show();
+		$('#settingsScreen').show();
+		$('nav').show();
 	}
 	
 });
+	$('section').hide();
+	$('nav').hide();
 
-var game = new Router();
+var r = new Router();
 Backbone.history.start();
 
 window.onload = function(){
