@@ -1,6 +1,4 @@
 'use strict';
-var Backbone = require('backbone');
-var $ = require('jquery');
 
 $(document).ready(function() {
 var Router =Backbone.Router.extend({
@@ -28,14 +26,14 @@ var Router =Backbone.Router.extend({
 });
 	$('section').hide();
 	$('nav').hide();
+	$('#loading').show();
+		setTimeout(function(){
+			$('nav').show();
+			r.navigate('play', { trigger: true });
+			}, 4000);
 
 var r = new Router();
 Backbone.history.start();
 
-window.onload = function(){
-	game.navigate('load', {trigger : true});
-	window.setTimeout(function(){
-		game.navigate('menu', {trigger : true})
-	}, 3000);
+});
 
-}
