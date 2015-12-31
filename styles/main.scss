@@ -1,0 +1,26 @@
+#load{
+	background-color:blue;
+	height:100%;
+	#animate{
+		color:white;
+		font-size:20em;
+	}
+}
+#menu{
+	background-color:#3a9dc6;
+	height:43em;
+	width:43em;
+	margin-left:15em;
+	text-align:center;
+	a{
+		color:#ff8100;
+		text-decoration:none;
+		display:block;
+		padding-top:1em;
+		padding-bottom:1em;
+	}
+	button{
+		height:15em;
+		width:10em;
+	}
+}

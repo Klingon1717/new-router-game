@@ -4,31 +4,41 @@
 $(document).ready(function () {
 	var Router = Backbone.Router.extend({
 		routes: {
-			'load': 'load',
 			'menu': 'menu',
+			'load': 'load',
 			'play': 'play',
 			'leaderboard': 'leaderboard',
 			'settings': 'settings'
 		},
 		play: function play() {
+			$('#menu').hide();
 			$('section').hide();
 			$('#play').show();
 		},
 		leaderboard: function leaderboard() {
+			$('#menu').hide();
 			$('section').hide();
 			$('#leaderboard').show();
 		},
 		settings: function settings() {
+			$('#menu').hide();
 			$('section').hide();
 			$('#settings').show();
 		},
 		load: function load() {
+			$('#leaderboard').hide();
+			$('#play').hide();
+			$('#settings').hide();
+			$('#menu').hide();
 			$('section').hide();
 			$('#load').show();
 		},
 		menu: function menu() {
 			$('section').hide();
 			$('#menu').show();
+			$('#settings').show();
+			$('#play').show();
+			$('#leaderboard').show();
 		}
 
 	});
