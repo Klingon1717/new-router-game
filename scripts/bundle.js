@@ -4,37 +4,44 @@
 $(document).ready(function () {
 	var Router = Backbone.Router.extend({
 		routes: {
-			'play': 'goPlay',
-			'leaderBoard': 'myLeaderboard',
-			'settings': 'mySettings'
+			'load': 'load',
+			'menu': 'menu',
+			'play': 'play',
+			'leaderboard': 'leaderboard',
+			'settings': 'settings'
 		},
-		goPlay: function goPlay() {
+		play: function play() {
 			$('section').hide();
-			$('#playScreen').show();
-			$('nav').show();
+			$('#play').show();
 		},
-		goLeaderboard: function goLeaderboard() {
+		leaderboard: function leaderboard() {
 			$('section').hide();
-			$('#leaderboardScreen').show();
-			$('nav').show();
+			$('#leaderboard').show();
 		},
-		goSettings: function goSettings() {
+		settings: function settings() {
 			$('section').hide();
-			$('#settingsScreen').show();
-			$('nav').show();
+			$('#settings').show();
+		},
+		load: function load() {
+			$('section').hide();
+			$('#load').show();
+		},
+		menu: function menu() {
+			$('section').hide();
+			$('#menu').show();
 		}
 
 	});
-	$('section').hide();
-	$('nav').hide();
-	$('#loading').show();
-	setTimeout(function () {
-		$('nav').show();
-		r.navigate('play', { trigger: true });
-	}, 4000);
 
 	var r = new Router();
 	Backbone.history.start();
+
+	window.onload = function () {
+		r.navigate('load', { trigger: true });
+		window.setTimeout(function () {
+			r.navigate('menu', { trigger: true });
+		}, 4000);
+	};
 });
 
 },{}]},{},[1])
